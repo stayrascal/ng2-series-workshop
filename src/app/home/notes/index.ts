@@ -1,4 +1,4 @@
-import {Component} from "@angular/core"
+import {Component} from"@angular/core"
 import {NoteCard} from "./note-card"
 
 @Component({
@@ -7,4 +7,12 @@ import {NoteCard} from "./note-card"
     directives: [NoteCard],
     styles: [require('./notes.css')]
 })
-export class Notes{}
+export class Notes{
+    notes = [{
+        title: 'This is Title',
+        value: 'This is Value'
+    },{
+        title: 'This is Title2',
+        value: 'This is Value2'
+    }]
+}
