@@ -6,8 +6,8 @@ var config = {
   devtool: 'source-map',
   entry: {
     polyfills: './src/polyfills',
-    vendor:    './src/vendor',
-    main:      './src/main'
+    vendor: './src/vendor',
+    main: './src/main'
   },
 
   output: {
@@ -17,16 +17,26 @@ var config = {
     chunkFilename: '[id].chunk.js'
   },
   module: {
-    loaders: [
-      { test: /\.ts$/,   loader: 'awesome-typescript-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.html/,  loader: 'raw-loader' },
-      { test: /\.css$/,  loader: 'to-string-loader!css-loader' },
-    ]
+    loaders: [{
+      test: /\.ts$/,
+      loader: 'awesome-typescript-loader'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
+      test: /\.html/,
+      loader: 'raw-loader'
+    }, {
+      test: /\.css$/,
+      loader: 'to-string-loader!css-loader'
+    }, ]
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: ['polyfills', 'vendor', 'main'].reverse(), minChunks: Infinity }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['polyfills', 'vendor', 'main'].reverse(),
+      minChunks: Infinity
+    }),
   ],
 
   resolve: {
@@ -35,7 +45,10 @@ var config = {
 
   devServer: {
     historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   },
 
   node: {
