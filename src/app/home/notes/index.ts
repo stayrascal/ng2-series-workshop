@@ -1,6 +1,6 @@
-import {Component} from "@angular/core"
-import {NoteCard} from "./note-card"
-import {NoteCreator} from "./note-creator"
+import {Component} from "@angular/core";
+import {NoteCard} from "./note-card";
+import {NoteCreator} from "./note-creator";
 
 @Component({
     selector: 'notes',
@@ -9,19 +9,27 @@ import {NoteCreator} from "./note-creator"
     styles: [require('./notes.css')]
 })
 
-export class Notes{
+export class Notes {
     notes = [{
         title: 'This is Title',
-        value: 'This is Value'
-    },{
+        value: 'This is Value',
+        color: 'white'
+    }, {
         title: 'This is Title2',
-        value: 'This is Value2'
-    },{
+        value: 'This is Value2',
+        color: 'white'
+    }, {
         title: 'This is Title3',
-        value: 'This is Value3'
+        value: 'This is Value3',
+        color: 'white'
     }]
 
-    checkCard(note, i){
+    checkCard(note, i) {
         this.notes.splice(i, 1)
     }
+
+    addNote(note) {
+        this.notes.push(note)
+    }
+
 }

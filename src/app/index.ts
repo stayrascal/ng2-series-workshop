@@ -1,5 +1,5 @@
-import {Component} from "@angular/core"
-import {Home} from './home'
+import {Component} from "@angular/core";
+import {Home} from "./home";
 
 @Component({
     selector: 'app',
@@ -7,6 +7,6 @@ import {Home} from './home'
     directives: [Home]
 })
 
-export class App{
+export class App {
 
 }
