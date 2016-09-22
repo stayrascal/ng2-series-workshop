@@ -7,7 +7,7 @@ export class ApiService {
     api_url: string = 'http://localhost:3500';
     headers: Headers = new Headers({
         'Content-Type': 'application/json',
-        'Accept': 'appliation/json'
+        'Accept': 'application/json'
     });
 
     constructor(private http: Http) {
@@ -35,6 +35,14 @@ export class ApiService {
 
     post(path: string, body): Observable<any> {
         return this.http.post(`${this.api_url}${path}`, JSON.stringify(body), {headers: this.headers})
+            .map(this.checkError)
+            .catch(err => Observable.throw(err))
+            .map(this.getJson);
+    }
+
+    delete(path: string): Observable<any> {
+        console.log(path);
+        return this.http.delete(`${this.api_url}${path}`, {headers: this.headers})
             .map(this.checkError)
             .catch(err => Observable.throw(err))
             .map(this.getJson);

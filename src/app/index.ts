@@ -1,12 +1,10 @@
-import {Component} from "@angular/core";
-import {Home} from "./home";
+export {App} from './app'
+export {router} from './routes'
 
-@Component({
-    selector: 'app',
-    template: require('./app.html'),
-    directives: [Home]
-})
+import * as services from './shared/services'
 
-export class App {
+const mapValuesToArray = obj => Object.keys(obj).map(key => obj[key]);
 
-}
+export const providers = [
+    ...mapValuesToArray(services)
+]
