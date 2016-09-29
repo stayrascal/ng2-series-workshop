@@ -18,9 +18,9 @@ export class Notes {
     }
 
     checkCard(note, id) {
-        // this.notes.splice(i, 1)
-        this.notesService.delete(note).subscribe(id => {
-            this.notes.splice(id, 1)
+        this.notesService.delete(note).subscribe(returnNote => {
+            let index = this.notes.findIndex(localNote => localNote.id === note.id);
+            this.notes.splice(index, 1)
         })
     }
 
