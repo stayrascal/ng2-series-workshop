@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@angular/router";
+import {AuthService} from "../services/auth";
 
 @Component({
     selector: 'app-bar',
@@ -9,5 +10,12 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
         ...ROUTER_DIRECTIVES
     ]
 })
+
 export class AppBar {
+
+    constructor(private authService: AuthService){}
+
+    signOut(): void {
+        this.authService.singOut()
+    }
 }
